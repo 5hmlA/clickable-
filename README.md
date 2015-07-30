@@ -1,0 +1,2 @@
+# clickable-
+测试当控件的clickable设置为true后ontouchvent对事件处理的变化
