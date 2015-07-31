@@ -21,20 +21,24 @@ public class MyTextView extends TextView {
 	}
 
 	@Override
-	public boolean onTouchEvent(MotionEvent paramMotionEvent) {
-		switch (paramMotionEvent.getAction()) {
+	public boolean onTouchEvent(MotionEvent event) {
+		boolean retu = true;
+		switch (event.getAction()) {
 		//如果down事件return true那么后续事件都会被消费无论move up是否返回false事件都不会被传递出去了
 		case MotionEvent.ACTION_DOWN:
-			Log.i("TextView", "view......onTouchEvent--------------down");
+			retu =  super.onTouchEvent(event);
+			Log.i("TextView", "down -----view......onTouchEvent-------"+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
-			Log.i("TextView", "view......onTouchEvent--------------move");
+			retu =  super.onTouchEvent(event);
+			Log.i("TextView", "move -----view......onTouchEvent---------"+retu);
 			break;
 			//只要down事件被消费了return true 那么后续事件都会被消费，不会传递出去了，尽管up的时候return false事件也不会被传出去，内部直接消费
 		case MotionEvent.ACTION_UP:
-			Log.i("TextView", "view......onTouchEvent--------------up");
+			retu =  super.onTouchEvent(event);
+			Log.i("TextView", "up -----view......onTouchEvent-------"+retu);
 			break;
 		}
-		return super.onTouchEvent(paramMotionEvent);
+		return retu;
 	}
 }

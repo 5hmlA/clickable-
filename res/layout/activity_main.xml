@@ -8,18 +8,39 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <com.example.clickabletest.MyRelativeLayout
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="60.0dip"
-        android:background="#fff00000"
-         >
-<!--          android:clickable="true" -->
+        android:padding="8dp" >
 
         <com.example.clickabletest.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="@string/hello_world" />
+            android:text="层次布局" />
+
+        <com.example.clickabletest.MyRelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60.0dip"
+            android:background="#30F80AF8" >
+        </com.example.clickabletest.MyRelativeLayout>
+        <!-- android:clickable="true" -->
+        <!-- android:clickable="true" -->
+    </FrameLayout>
+
+    <com.example.clickabletest.MyRelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dip"
+        android:background="#fff00000" >
+
+        <!-- android:clickable="true" -->
+
+
+        <!-- android:clickable="true" -->
+
+        <com.example.clickabletest.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="包裹布局" />
     </com.example.clickabletest.MyRelativeLayout>
 
     <com.example.clickabletest.MyListView

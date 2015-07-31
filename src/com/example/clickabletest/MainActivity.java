@@ -26,6 +26,9 @@ import android.widget.TextView;
  * 																down返回 false ，(告诉上层控件我不处理任何事件)，后续事件根本不会被传递到该控件
  * 
  * view中的任何事件都是来自于 上层viewgroup控件onInterceptHoverEvent 并返回false （viewgroup不拦截事件才传到view中被处理）
+ * 
+ * move事件能被传递到 控件 说明down事件必然被消费了
+ * 
  * @author Refuse
  * 
  */

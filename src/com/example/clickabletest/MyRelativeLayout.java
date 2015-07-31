@@ -22,22 +22,24 @@ public class MyRelativeLayout extends RelativeLayout {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent event) {
+		boolean retu = true;
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN://0
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onInterceptTouchEvent--------------down");
+					"down-----viewgroup.....onInterceptTouchEvent---------"+retu);
 			break;
 		case MotionEvent.ACTION_MOVE://2
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onInterceptTouchEvent--------------move");
+					"move------viewgroup.....onInterceptTouchEvent--------"+retu);
 			break;
 		case MotionEvent.ACTION_UP://1
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onInterceptTouchEvent--------------up");
+					"up------viewgroup.....onInterceptTouchEvent-------"+retu);
 			break;
 		}
-		boolean retu = super.onInterceptTouchEvent(event);
-		Log.e("RelativeLayout", event.getAction()+"---viewgroup....-super==父类..onInterceptTouchEvent...." + retu);
 		return retu;
 	}
 
@@ -45,22 +47,24 @@ public class MyRelativeLayout extends RelativeLayout {
 	//当clickable为true时 会消费所有事件 down返回true
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		boolean retu = true;
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onTouchEvent--------------down");
+					"down----viewgroup.....onTouchEvent--------"+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onTouchEvent--------------move");
+					"move----viewgroup.....onTouchEvent--------"+retu);
 			break;
 		case MotionEvent.ACTION_UP:
+			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"viewgroup.....onTouchEvent--------------up");
+					"up------viewgroup.....onTouchEvent--------"+retu);
 			break;
 		}
-		boolean bool = super.onTouchEvent(event);
-		Log.e("RelativeLayout", "viewgroup...-super==父类..onTouchEvent...." + bool);
-		return bool;
+		return retu;
 	}
 }
