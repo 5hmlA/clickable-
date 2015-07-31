@@ -1,18 +1,23 @@
 package com.example.clickabletest;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.widget.RelativeLayout;
 
-public class MyRelativeLayout extends RelativeLayout {
+public class MyRelativeLayout extends RelativeLayout implements OnTouchListener {
 	public MyRelativeLayout(Context paramContext) {
 		super(paramContext);
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	public MyRelativeLayout(Context paramContext, AttributeSet paramAttributeSet) {
 		super(paramContext, paramAttributeSet);
+		setOnTouchListener(this);
 	}
 
 	public MyRelativeLayout(Context paramContext,
@@ -27,17 +32,17 @@ public class MyRelativeLayout extends RelativeLayout {
 		case MotionEvent.ACTION_DOWN://0
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"down-----viewgroup.....onInterceptTouchEvent---------"+retu);
+					"down-----viewgroup.....onInterceptTouchEvent---------super："+retu);
 			break;
 		case MotionEvent.ACTION_MOVE://2
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"move------viewgroup.....onInterceptTouchEvent--------"+retu);
+					"move------viewgroup.....onInterceptTouchEvent--------super："+retu);
 			break;
 		case MotionEvent.ACTION_UP://1
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"up------viewgroup.....onInterceptTouchEvent-------"+retu);
+					"up------viewgroup.....onInterceptTouchEvent-------super："+retu);
 			break;
 		}
 		return retu;
@@ -52,19 +57,38 @@ public class MyRelativeLayout extends RelativeLayout {
 		case MotionEvent.ACTION_DOWN:
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"down----viewgroup.....onTouchEvent--------"+retu);
+					"down----viewgroup.....onTouchEvent--------super："+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"move----viewgroup.....onTouchEvent--------"+retu);
+					"move----viewgroup.....onTouchEvent--------super："+retu);
 			break;
 		case MotionEvent.ACTION_UP:
 			 retu = super.onInterceptTouchEvent(event);
 			Log.e("RelativeLayout",
-					"up------viewgroup.....onTouchEvent--------"+retu);
+					"up------viewgroup.....onTouchEvent--------super："+retu);
 			break;
 		}
 		return retu;
+	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			Log.e("RelativeLayout",
+					"down----viewgroup.....onTouchEvent--------OnTouchListener");
+			break;
+		case MotionEvent.ACTION_MOVE:
+			Log.e("RelativeLayout",
+					"move----viewgroup.....onTouchEvent--------OnTouchListener");
+			break;
+		case MotionEvent.ACTION_UP:
+			Log.e("RelativeLayout",
+					"up------viewgroup.....onTouchEvent--------OnTouchListener");
+			break;
+		}
+		return false;
 	}
 }

@@ -29,21 +29,19 @@ public class MyListView extends ListView {
 		case MotionEvent.ACTION_DOWN:
 			retu =  super.onInterceptTouchEvent(event);
 			Log.d("listview",
-					"down-----viewgroup.....onInterceptTouchEvent----------"+retu);
+					"down-----viewgroup.....onInterceptTouchEvent----------super："+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
 			retu =  super.onInterceptTouchEvent(event);
 			Log.d("listview",
-					"move----viewgroup.....onInterceptTouchEvent---------"+retu);
+					"move----viewgroup.....onInterceptTouchEvent---------super："+retu);
 			break;
 		case MotionEvent.ACTION_UP:
 			retu =  super.onInterceptTouchEvent(event);
 			Log.d("listview",
-					"up----viewgroup.....onInterceptTouchEvent---------"+retu);
+					"up----viewgroup.....onInterceptTouchEvent---------super："+retu);
 			break;
 		}
-		
-		Log.d("listview", "viewgroup....-super==父类..onInterceptTouchEvent...." + retu);
 		return retu;
 	}
 
@@ -55,11 +53,11 @@ public class MyListView extends ListView {
 		// 判断事件是否会被传出去只要看down事件是否被消费，down被消费则当前以及后续事件无论如何都不会被传出去
 		case MotionEvent.ACTION_DOWN:
 			retu =  super.onInterceptTouchEvent(event);
-			Log.d("listview", "down----viewgroup.....onTouchEvent--------"+retu);
+			Log.d("listview", "down----viewgroup.....onTouchEvent--------super："+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
 			retu =  super.onInterceptTouchEvent(event);
-			Log.d("listview", "move----viewgroup.....onTouchEvent----------"+retu);
+			Log.d("listview", "move----viewgroup.....onTouchEvent----------super："+retu);
 			break;
 		// move up事件是否会被接收
 		// 1，要down事件被消费，后续事件可被接收，2，down事件被丢失(down传过来了我不消费返回false) 返回false，(告诉上层控件我不处理任何事件)那么后续事件不会被传到该控件
@@ -70,7 +68,7 @@ public class MyListView extends ListView {
 		// up)不肯能被传到该控件）
 		case MotionEvent.ACTION_UP:
 			retu =  super.onInterceptTouchEvent(event);
-			Log.d("listview", "up----viewgroup.....onTouchEvent--------"+retu);
+			Log.d("listview", "up----viewgroup.....onTouchEvent--------super："+retu);
 			break;
 		}
 		if (0 == pointToPosition((int) event.getX(), (int) event.getY())) {

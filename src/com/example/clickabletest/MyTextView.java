@@ -27,16 +27,16 @@ public class MyTextView extends TextView {
 		//如果down事件return true那么后续事件都会被消费无论move up是否返回false事件都不会被传递出去了
 		case MotionEvent.ACTION_DOWN:
 			retu =  super.onTouchEvent(event);
-			Log.i("TextView", "down -----view......onTouchEvent-------"+retu);
+			Log.i("TextView", "down -----view......onTouchEvent-------super："+retu);
 			break;
 		case MotionEvent.ACTION_MOVE:
 			retu =  super.onTouchEvent(event);
-			Log.i("TextView", "move -----view......onTouchEvent---------"+retu);
+			Log.i("TextView", "move -----view......onTouchEvent---------super："+retu);
 			break;
 			//只要down事件被消费了return true 那么后续事件都会被消费，不会传递出去了，尽管up的时候return false事件也不会被传出去，内部直接消费
 		case MotionEvent.ACTION_UP:
 			retu =  super.onTouchEvent(event);
-			Log.i("TextView", "up -----view......onTouchEvent-------"+retu);
+			Log.i("TextView", "up -----view......onTouchEvent-------super："+retu);
 			break;
 		}
 		return retu;

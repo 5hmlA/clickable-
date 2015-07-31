@@ -7,7 +7,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -41,6 +43,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		mlv = (MyListView) findViewById(R.id.mlv);
+		MyRelativeLayout rl = (MyRelativeLayout) findViewById(R.id.rl);
 		getData();
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<>(this,

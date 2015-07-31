@@ -16,14 +16,15 @@
         <com.example.clickabletest.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+         android:clickable="true"
             android:text="层次布局" />
 
         <com.example.clickabletest.MyRelativeLayout
+            android:id="@+id/rl"
             android:layout_width="fill_parent"
             android:layout_height="60.0dip"
             android:background="#30F80AF8" >
         </com.example.clickabletest.MyRelativeLayout>
-        <!-- android:clickable="true" -->
         <!-- android:clickable="true" -->
     </FrameLayout>
 
